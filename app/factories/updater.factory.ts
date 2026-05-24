@@ -1,4 +1,4 @@
-import { ItemEnum } from "@/enums";
+import { ItemName } from "@/enums";
 import {
   AgedBrieUpdater,
   BackstagePassesUpdater,
@@ -10,10 +10,10 @@ import {
 export class UpdaterFactory {
   public static create(name: string) {
     const itemToUpdaterMap = {
-      [ItemEnum.AgedBrie]: AgedBrieUpdater,
-      [ItemEnum.BackstagePasses]: BackstagePassesUpdater,
-      [ItemEnum.Sulfuras]: SulfurasUpdater,
-      [ItemEnum.Conjured]: ConjuredUpdater,
+      [ItemName.AgedBrie]: AgedBrieUpdater,
+      [ItemName.BackstagePasses]: BackstagePassesUpdater,
+      [ItemName.Sulfuras]: SulfurasUpdater,
+      [ItemName.Conjured]: ConjuredUpdater,
     };
 
     return new (itemToUpdaterMap[name] || BaseUpdater)();

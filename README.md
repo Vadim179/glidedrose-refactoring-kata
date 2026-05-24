@@ -21,3 +21,8 @@
 - "Sulfuras" has no update implementation because it's legendary.
 - "Conjured" degrades twice as fast as normal items just like in the requirements, if base class requirements change, "Conjured" would follow up, respecting the open-closed principle.
 - Removed the commented legacy implementation.
+
+### Patch 4
+
+- "Sulfuras" in the requirements has a constant quality of 80. I think we can create a subclass model of the Item class that enforces a quality of 80, liskov substitution principle would be respected with this approach.
+- Renamed the ItemName to ItemName, no need for the "Enum" suffix because it's verbose, and it resembles the purpose of the enum more.
