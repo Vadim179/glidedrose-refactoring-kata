@@ -26,3 +26,15 @@
 
 - "Sulfuras" in the requirements has a constant quality of 80. I think we can create a subclass model of the Item class that enforces a quality of 80, liskov substitution principle would be respected with this approach.
 - Renamed the ItemName to ItemName, no need for the "Enum" suffix because it's verbose, and it resembles the purpose of the enum more.
+
+### Patch 5
+
+- Created .spec.ts files for every item type.
+- Created a helper function in test folder that creates a GlidedRose instance and runs an update on a provided item.
+- Created multiple test cases with the help of AI for every item type.
+- Removed vitest and mocha test commands from package.json.
+- Ran tests:
+  Test Suites: 6 passed, 6 total
+  Tests: 24 passed, 24 total
+  Snapshots: 2 written, 2 total
+  Time: 5.278 s
