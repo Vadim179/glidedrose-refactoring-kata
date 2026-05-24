@@ -38,3 +38,17 @@
   Tests: 24 passed, 24 total
   Snapshots: 2 written, 2 total
   Time: 5.278 s
+
+# How to Run
+
+1. Clone the repo
+2. Install dependencies
+   > yarn
+3. Run unit tests
+   > yarn test:jest
+
+# Notes
+
+- For the file naming convention, I went with a name.type.extension format just to be consistent with the legacy file.
+
+- I also went with a full OOP approach under the assumption that the legacy version is built on OOP infrastructure that according to the requirements cannot be changed.
