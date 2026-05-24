@@ -13,3 +13,11 @@
 
 - After more analysis, seems like we cannot extend from the Item class nor change it. So instead I'm thinking of doing "Item Updater" classes which run the update functionality based on the item type.
 - Set up the file structure for updaters and factories and created the base class with some helper functions.
+
+### Patch 3
+
+- Went through the original legacy implementation, mapped out all code paths and transfered the logic into the respective updater classes.
+- Incorporated qualityChangeModifier inside increaseQuality and decreaseQuality... This way we can easily handle cases where some items can have for example 2x or 3x as much quality change as others.
+- "Sulfuras" has no update implementation because it's legendary.
+- "Conjured" degrades twice as fast as normal items just like in the requirements, if base class requirements change, "Conjured" would follow up, respecting the open-closed principle.
+- Removed the commented legacy implementation.

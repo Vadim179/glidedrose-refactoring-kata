@@ -10,19 +10,31 @@ export class BaseUpdater {
     return item.sellIn < 0;
   }
 
+  private scaleQualityChange(change: number) {
+    return change * this.qualityChangeMultiplier;
+  }
+
   protected increaseQuality(item: Item, amount = 1) {
-    item.quality = Math.min(this.maxQuality, item.quality + amount);
+    const scaledAmount = this.scaleQualityChange(amount);
+    item.quality = Math.min(this.maxQuality, item.quality + scaledAmount);
     return this;
   }
 
   protected decreaseQuality(item: Item, amount = 1) {
-    item.quality = Math.max(this.minQuality, item.quality - amount);
+    const scaledAmount = this.scaleQualityChange(amount);
+    item.quality = Math.max(this.minQuality, item.quality - scaledAmount);
     return this;
   }
 
-  protected scaleQualityChange(change: number) {
-    return change * this.qualityChangeMultiplier;
+  protected decreaseSellIn(item: Item, amount = 1) {
+    item.sellIn -= amount;
+    return this;
   }
 
-  public update(item: Item) {}
+  public update(item: Item) {
+    this.decreaseSellIn(item);
+
+    const qualityDecreaseAmount = this.hasExpired(item) ? 2 : 1;
+    this.decreaseQuality(item, qualityDecreaseAmount);
+  }
 }
